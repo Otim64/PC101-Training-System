@@ -11,7 +11,9 @@ def init_db():
         username TEXT NOT NULL UNIQUE,
         email TEXT NOT NULL UNIQUE,
         password_hash TEXT NOT NULL,
-        role TEXT DEFAULT 'trainer'
+        role TEXT DEFAULT 'trainer',
+        phone TEXT,
+        image TEXT
     )
     """)
 

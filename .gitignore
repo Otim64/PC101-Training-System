@@ -6,11 +6,13 @@ __pycache__/
 venv/
 env/
 
-# Database files
+# Ignore databases except production database
 *.db
+!students.db
 
 # Uploaded files
-uploads/
+static/uploads/*
+!static/uploads/default_profile.jpg
 
 # Environment variables
 .env

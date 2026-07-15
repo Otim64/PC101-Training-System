@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Payments{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+{% endblock %}
+
+{% block page_title %}Payments{% endblock %}
+
+{% block content %}
+
+<!-- HEADER -->
+<div class="payments-header">
+
+    <h2>Student Payments</h2>
+
+    <a href="/payments/add" class="btn-add-payment">+ Add Payment</a>
+
+</div>
+
+<!-- SUMMARY CARDS -->
+<div class="payment-cards">
+
+    <div class="payment-card">
+        <h3>Total Collected</h3>
+        <p class="money" data-value="{{ total_collected }}"></p>
+    </div>
+
+    <div class="payment-card">
+        <h3>Pending Payments</h3>
+        <p class="money" data-value="{{ pending_payments }}"></p>
+    </div>
+
+    <div class="payment-card">
+        <h3>Transactions</h3>
+        <p>{{ transactions }}</p>
+    </div>
+
+</div>
+
+<br>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <input type="text" id="paymentSearch" placeholder="Search payments...">
+</div>
+
+<!-- PAYMENTS TABLE -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Amount (UGX)</th>
+            <th>Date Paid</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody id="paymentsTable">
+
+        <!-- SAMPLE FRONTEND DATA -->
+
+        {% for payment in payments %}
+        <tr>
+            <td>{{ payment.id }}</td>
+            <td>{{ payment.full_name }}</td>
+            <td class="money">{{ payment.amount }}</td>
+            <td>{{ payment.date_paid }}</td>
+            <td>{{ payment.description }}</td>
+            <td><span class="status paid">Paid</span></td>
+        </tr>
+        {% endfor %}
+
+        
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+{% endblock %}

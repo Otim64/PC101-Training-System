@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Attendance History{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance_history.css') }}">
+{% endblock %}
+
+{% block page_title %}Attendance History{% endblock %}
+
+{% block content %}
+
+<div class="history-container">
+
+    <div class="history-header">
+
+        <input type="date" id="filterDate" value="{{ default_date }}">
+
+        <button class="btn-filter">Search</button>
+
+        <a href="/attendance" class="btn-back">
+            Back to Attendance
+        </a>
+
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody id="historyTable">
+
+            {% for r in records %}
+            <tr>
+                <td>{{ r.id }}</td>
+                <td>{{ r.full_name }}</td>
+                <td>{{ r.course }}</td>
+                <td>{{ r.status }}</td>
+                <td>{{ r.date }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/attendance_history.js') }}"></script>
+{% endblock %}

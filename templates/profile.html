@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block page_title %}My Profile{% endblock %}
+
+{% block content %}
+
+<div class="profile-container">
+
+    <!-- LEFT SIDE: PROFILE CARD -->
+    <div class="profile-card">
+
+        <div class="profile-image">
+
+            <img src="{{ url_for('static', filename='uploads/' + (user.image if user.image else 'default_profile.jpg')) }}">
+
+            <input type="file" id="photoInput" accept="image/*" hidden>
+
+        </div>
+
+        <h2 id="displayName">{{ user.username }}</h2>
+        <p id="displayRole">{{ user.role }}</p>
+
+        <button id="changePhotoBtn">Change Photo</button>
+
+    </div>
+
+    <!-- RIGHT SIDE: EDIT FORM -->
+    <div class="profile-form">
+
+        <h3>Edit Profile</h3>
+
+        <form id="profileForm">
+
+            <label>Full Name</label>
+            <input type="text" id="nameInput" value="{{ user.username }}">
+
+            <label>Email</label>
+            <input type="email" id="emailInput" value="{{ user.email }}">
+
+            <label>Phone</label>
+            <input type="text" id="phoneInput" value="{{ user.phone }}">
+
+            <label>Role</label>
+            <input type="text" id="roleInput" value="{{ user.role }}">
+
+            <button type="submit">Save Changes</button>
+
+        </form>
+
+
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

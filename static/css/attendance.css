@@ -1,0 +1,142 @@
+/* =========================
+   ATTENDANCE HEADER
+========================= */
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.attendance-header h2 {
+    color: #111827;
+}
+
+/* ACTIONS (DATE + BUTTON) */
+.attendance-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.attendance-actions input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.attendance-actions input:focus {
+    border-color: #1d4ed8;
+}
+
+/* MARK BUTTON */
+.btn-mark {
+    background: #1d4ed8;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-mark:hover {
+    background: #1e40af;
+}
+
+.btn-history {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-history:hover {
+    background: #0056b3;
+}
+
+/* =========================
+   TABLE DESIGN
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th {
+    background: #1d4ed8;
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Row hover */
+table tr:hover {
+    background: #f1f5f9;
+}
+
+/* =========================
+   STATUS DROPDOWN
+========================= */
+
+.status {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+/* Color indicators (visual feedback) */
+.status option[value="Present"] {
+    color: green;
+}
+
+.status option[value="Absent"] {
+    color: red;
+}
+
+.status option[value="Late"] {
+    color: orange;
+}
+
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+    .attendance-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .attendance-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-mark {
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}

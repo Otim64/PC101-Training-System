@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}PC101 Training System{% endblock %}</title>
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    <!-- PAGE SPECIFIC CSS -->
+    {% block css %}{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>PC101</h2>
+            <p>Training System</p>
+        </div>
+
+        <nav>
+
+            <a href="/dashboard">🏠 Dashboard</a>
+
+            <a href="/students">👨‍🎓 Students</a>
+
+            <a href="/attendance">📅 Attendance</a>
+
+            <a href="/payments">💰 Payments</a>
+
+            <a href="/reports">📊 Reports</a>
+
+            <a href="/profile">👤 Profile</a>
+
+            <a href="/logout">🚪 Logout</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main-container">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+
+                <h2>{% block page_title %}Dashboard{% endblock %}</h2>
+
+            </div>
+
+            <div class="user-info">
+
+                Welcome,
+                {% if username %}
+                    {{ username }}
+                {% else %}
+                    User
+                {% endif %}
+
+            </div>
+
+        </header>
+
+        <!-- Page Content -->
+        <main class="content">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+
+            © 2026 PC101 Training Management System
+
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+
+    {% block js %}{% endblock %}
+
+  
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* MAIN WRAPPER */
+.main-container {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: #0b1f3a;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo h2 {
+    font-size: 24px;
+}
+
+.sidebar .logo p {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    background: #1d3557;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    min-height: 80vh;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+button {
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background: #f0f2f5;
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-container {
+        margin-left: 180px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

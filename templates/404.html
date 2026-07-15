@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+{% endblock %}
+
+{% block page_title %}System Status{% endblock %}
+
+{% block content %}
+
+<div class="error-container">
+
+    <!-- ICON -->
+    <div class="error-icon">
+        ⚠️
+    </div>
+
+    <!-- TITLE -->
+    <h1>Oops! Something Went Wrong</h1>
+
+    <!-- MESSAGE AREA -->
+    <p id="statusMessage">
+        Checking system connection...
+    </p>
+
+    <!-- NETWORK STATUS BOX -->
+    <div class="network-box" id="networkBox">
+        Status: Checking...
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="error-actions">
+
+        <button onclick="location.reload()">Retry</button>
+
+        <a href="/dashboard">Go to Dashboard</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

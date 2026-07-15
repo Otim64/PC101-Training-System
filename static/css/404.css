@@ -1,0 +1,92 @@
+/* =========================
+   FULL SCREEN CENTER
+========================= */
+
+.error-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.error-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.error-container h1 {
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.error-container p {
+    color: #6b7280;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   NETWORK BOX
+========================= */
+
+.network-box {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.error-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.error-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #ef4444;
+    color: white;
+    cursor: pointer;
+}
+
+.error-actions a {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #1d4ed8;
+    color: white;
+    text-decoration: none;
+}
+
+/* =========================
+   OFFLINE STATE COLORS
+========================= */
+
+.offline {
+    background: #fee2e2 !important;
+    color: #b91c1c;
+}
+
+.online {
+    background: #dcfce7 !important;
+    color: #166534;
+}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- DASHBOARD CARDS -->
+<div class="cards">
+
+    <div class="card">
+        <h3>Students</h3>
+        <p>{{ student_count }} Registered</p>
+    </div>
+
+    <div class="card">
+        <h3>Payments</h3>
+        <p class="money" data-value="{{ payment_total }}"></p>
+    </div>
+
+    <div class="card">
+        <h3>Attendance</h3>
+        <p>{{ attendance_rate }}%</p>
+    </div>
+
+</div>
+
+<br><br>
+
+<!-- RECENT STUDENTS -->
+<h3>Recent Students</h3>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Phone</th>
+        <th>Course</th>
+    </tr>
+
+    {% for student in recent_students %}
+    <tr>
+        <td>{{ student["id"] }}</td>
+        <td>{{ student["full_name"] }}</td>
+        <td>{{ student["phone"] }}</td>
+        <td>{{ student["course"] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Students{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/student.css') }}">
+{% endblock %}
+
+{% block page_title %}Students{% endblock %}
+
+{% block content %}
+
+<div class="students-header">
+
+    <h2>All Students</h2>
+
+    <a href="/students/add" class="btn-add">+ Add Student</a>
+
+</div>
+
+<!-- SEARCH BOX -->
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search students...">
+</div>
+
+<!-- STUDENTS TABLE -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody id="studentsTable">
+
+        <!-- STATIC SAMPLE DATA (FRONTEND ONLY) -->
+
+        {% for student in students %}
+        <tr  id="student-{{ student.id }}">
+            <td>{{ student.id }}</td>
+            <td>{{ student.full_name }}</td>
+            <td>{{ student.phone }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.course }}</td>
+            <td>
+                <button class="edit-btn">
+                    <a href="/students/edit/{{ student.id }}">
+                        Edit
+                    </a>
+                </button>
+
+                <button class="delete-btn"onclick="deleteStudent({{ student.id }})">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/student.js') }}"></script>
+{% endblock %}

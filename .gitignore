@@ -1,0 +1,22 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# Database files
+*.db
+
+# Uploaded files
+uploads/
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Local library folders
+fpdf/

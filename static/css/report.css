@@ -1,0 +1,123 @@
+/* =========================
+   FILTER SECTION
+========================= */
+
+.report-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.report-filters select,
+.report-filters input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn-generate {
+    background: #7c3aed;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-generate:hover {
+    background: #6d28d9;
+}
+
+/* =========================
+   REPORT CARDS
+========================= */
+
+.report-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.report-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #7c3aed;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.report-card h3 {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.report-card p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #7c3aed;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th {
+    background: #7c3aed;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:hover {
+    background: #f5f3ff;
+}
+
+/* =========================
+   STATUS LABELS
+========================= */
+
+.status {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.status.success {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status.warning {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .report-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .report-filters {
+        flex-direction: column;
+    }
+}

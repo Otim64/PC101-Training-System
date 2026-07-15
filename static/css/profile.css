@@ -1,0 +1,118 @@
+/* =========================
+   PROFILE LAYOUT
+========================= */
+
+.profile-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   PROFILE CARD (LEFT)
+========================= */
+
+.profile-card {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-card h2 {
+    margin: 10px 0 5px;
+}
+
+.profile-card p {
+    color: gray;
+}
+
+.profile-card button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* =========================
+   PROFILE FORM (RIGHT)
+========================= */
+
+.profile-form {
+    flex: 2;
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.profile-form h3 {
+    margin-bottom: 15px;
+}
+
+.profile-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form label {
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.profile-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.profile-form input:focus {
+    border-color: #1d4ed8;
+}
+
+.profile-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.profile-form button:hover {
+    background: #15803d;
+}
+.profile-image img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1d4ed8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .profile-container {
+        flex-direction: column;
+    }
+}

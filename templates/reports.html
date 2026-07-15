@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+{% endblock %}
+
+{% block page_title %}Reports & Analytics{% endblock %}
+
+{% block content %}
+
+<!-- FILTER SECTION -->
+<div class="report-filters">
+
+    <select id="reportType">
+        <option value="all">All Reports</option>
+        <option value="students">Students</option>
+        <option value="payments">Payments</option>
+        <option value="attendance">Attendance</option>
+    </select>
+
+    <input type="date" id="fromDate">
+    <input type="date" id="toDate">
+
+    <a href="/reports/pdf" class="btn-generate">
+        Generate PDF
+    </a>
+
+
+</div>
+
+<!-- SUMMARY CARDS -->
+<div class="report-cards">
+
+    <div class="report-card">
+        <h3>Total Students</h3>
+        <p>{{ student_count }}</p>
+    </div>
+
+    <div class="report-card">
+        <h3>Total Payments</h3>
+        <p class="money" data-value="{{ payment_total }}"></p>
+    </div>
+
+    <div class="report-card">
+        <h3>Attendance Rate</h3>
+        <p>{{ attendance_rate }}%</>
+    </div>
+
+</div>
+
+<br>
+
+<!-- REPORT TABLE -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody id="reportTable">
+
+        {% for record in report_rows %}
+        <tr>
+            <td>{{ record.id }}</td>
+            <td>{{ record.type }}</td>
+            <td>{{ record.description }}</td>
+            <td>{{ record.date }}</td>
+            <td>
+                <span class="status">{{ record.status }}</span>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/report.js') }}"></script>
+<script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+{% endblock %}

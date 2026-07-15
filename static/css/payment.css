@@ -1,0 +1,143 @@
+/* =========================
+   PAYMENTS HEADER
+========================= */
+
+.payments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.payments-header h2 {
+    color: #111827;
+}
+
+/* ADD PAYMENT BUTTON */
+.btn-add-payment {
+    background: #16a34a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-add-payment:hover {
+    background: #15803d;
+}
+
+/* =========================
+   PAYMENT CARDS
+========================= */
+
+.payment-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.payment-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 5px solid #16a34a;
+    transition: 0.3s;
+}
+
+.payment-card:hover {
+    transform: translateY(-3px);
+}
+
+.payment-card h3 {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.payment-card p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+/* =========================
+   SEARCH BOX (reuse style)
+========================= */
+
+.search-box {
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* =========================
+   PAYMENTS TABLE
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th {
+    background: #16a34a;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:hover {
+    background: #f0fdf4;
+}
+
+/* =========================
+   PAYMENT STATUS
+========================= */
+
+.status {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.paid {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status.pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .payment-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .payments-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Add Payment{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/payment_form.css') }}">
+{% endblock %}
+
+{% block page_title %}Add Payment{% endblock %}
+
+{% block content %}
+
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group select,
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 12px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn-submit:hover {
+        background: #218838;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="form-container">
+
+    <h2>Add New Payment</h2>
+
+    <form method="POST" action="/payments/add">
+
+        <!-- STUDENT SELECT -->
+        <div class="form-group">
+            <label>Student</label>
+            <select name="student_id" required>
+                <option value="">-- Select Student --</option>
+
+                {% for student in students %}
+                    <option value="{{ student.id }}">
+                        {{ student.full_name }}
+                    </option>
+                {% endfor %}
+
+            </select>
+        </div>
+
+        <!-- AMOUNT -->
+        <div class="form-group">
+            <label>Amount (UGX)</label>
+            <input type="number" name="amount" required>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="description" placeholder="e.g. Module 1 Fee">
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn-submit">
+            Save Payment
+        </button>
+
+    </form>
+
+    <!-- BACK LINK -->
+    <a href="/payments" class="back-link">
+        ← Back to Payments
+    </a>
+
+</div>
+
+{% endblock %}

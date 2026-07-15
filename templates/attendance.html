@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Attendance{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/attendance.css') }}">
+{% endblock %}
+
+{% block page_title %}Attendance{% endblock %}
+
+{% block content %}
+
+<div class="attendance-header">
+
+    <h2>Student Attendance</h2>
+
+    <div class="attendance-actions">
+        <input type="date" id="attendanceDate">
+
+        <a href="/attendance/history" class="btn-history">
+            Attendance History
+        </a>
+
+        <button class="btn-history btn-mark">
+            Mark Attendance
+        </button>
+    </div>
+
+</div>
+
+<!-- ATTENDANCE TABLE -->
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Course</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for student in students %}
+        <tr id="student-{{ student.id }}">
+
+            <td>{{ student.id }}</td>
+
+            <td>{{ student.full_name }}</td>
+
+            <td>{{ student.course }}</td>
+
+            <td>
+                <select class="status" data-id="{{ student.id }}">
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                    <option value="Late">Late</option>
+                </select>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/attendance.js') }}"></script>
+{% endblock %}

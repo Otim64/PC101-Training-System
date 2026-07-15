@@ -1,0 +1,25 @@
+.history-container {
+    padding: 20px;
+}
+
+.history-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-filter {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-back {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

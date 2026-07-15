@@ -48,23 +48,28 @@ def upload_image():
 
     user_id = session.get("user_id")
 
-    file = request.files["image"]
+    file = request.files.get("image")
 
-    if file:
-
-        filename = secure_filename(file.filename)
-
-        path = os.path.join("static/uploads", filename)
-        file.save(path)
-
-        User.update_profile_image(user_id, filename)
-
+    if not file or file.filename == "":
         return jsonify({
-            "success": True,
-            "message": "Profile image updated"
+            "success": False,
+            "message": "No image uploaded"
         })
 
+    filename = secure_filename(file.filename)
+
+    upload_folder = os.path.join("static", "uploads")
+
+    # Create uploads folder if it doesn't exist
+    os.makedirs(upload_folder, exist_ok=True)
+
+    path = os.path.join(upload_folder, filename)
+
+    file.save(path)
+
+    User.update_profile_image(user_id, filename)
+
     return jsonify({
-        "success": False,
-        "message": "No image uploaded"
+        "success": True,
+        "message": "Profile image updated"
     })

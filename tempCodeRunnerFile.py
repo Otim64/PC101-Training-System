@@ -6,15 +6,10 @@ from routes.attendance import attendance
 from routes.payments import payment
 from routes.reports import reports
 from routes.profile import profile
-from database.init_db import init_db
 
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
-
-print("Calling init_db()...")
-init_db()
-print("init_db() finished")
 
 app.register_blueprint(student)
 app.register_blueprint(auth)

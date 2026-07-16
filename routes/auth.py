@@ -32,7 +32,9 @@ def register():
             return redirect("/")
 
         except Exception as e:
-            flash("Username or email already exists", "error")
+            print("REGISTER ERROR:", e)
+
+            flash(str(e), "error")
             return redirect("/register")
 
     return render_template("register.html")

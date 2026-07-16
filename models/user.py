@@ -7,13 +7,20 @@ class User:
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute("""
-        INSERT INTO users (username, email, password_hash)
-        VALUES (?, ?, ?)
-        """, (username, email, password_hash))
+        try:
+            cursor.execute("""
+            INSERT INTO users (username, email, password_hash)
+            VALUES (?, ?, ?)
+            """, (username, email, password_hash))
 
-        conn.commit()
-        conn.close()
+            conn.commit()
+
+        except Exception as e:
+            print("CREATE USER ERROR:", e)
+            raise
+
+        finally:
+            conn.close()
 
     @staticmethod
     def get_user_by_username(username):

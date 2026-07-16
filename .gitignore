@@ -6,12 +6,13 @@ __pycache__/
 venv/
 env/
 
-# Ignore databases except production database
+# Local database
 *.db
-!students.db
 
-# Uploaded files
+# User uploaded images
 static/uploads/*
+
+# Keep default profile image
 !static/uploads/default_profile.jpg
 
 # Environment variables
@@ -20,5 +21,5 @@ static/uploads/*
 # VS Code settings
 .vscode/
 
-# Local library folders
+# Local libraries
 fpdf/
